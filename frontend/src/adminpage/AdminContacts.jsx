@@ -9,7 +9,7 @@ const AdminContacts = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/admin/contact", { withCredentials: true })
+      .get("https://wms-website.onrender.com/api/admin/contact", { withCredentials: true })
       .then((res) => setMessages(res.data.messages))
       .catch((err) => console.log("Error fetching contacts", err));
   }, []);
