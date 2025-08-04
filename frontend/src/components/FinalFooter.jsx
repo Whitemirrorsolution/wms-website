@@ -27,24 +27,24 @@ const defaultContact = [
 ];
 
 const socials = [
-	{
-		icon: <FaGithub />,
-		href: 'https://github.com/WhiteMirrorSolutions',
-		label: 'GitHub',
-	},
+	// {
+	// 	icon: <FaGithub />,
+	// 	href: 'https://github.com/WhiteMirrorSolutions',
+	// 	label: 'GitHub',
+	// },
 	{
 		icon: <FaLinkedin />,
-		href: 'https://linkedin.com/company/whitemirror',
+		href: 'https://www.linkedin.com/company/whitemirror-solution-pvt-ltd/posts/?feedView=all',
 		label: 'LinkedIn',
 	},
-	{
-		icon: <FaTwitter />,
-		href: 'https://twitter.com/whitemirrorai',
-		label: 'Twitter',
-	},
+	// {
+	// 	icon: <FaTwitter />,
+	// 	href: 'https://twitter.com/whitemirrorai',
+	// 	label: 'Twitter',
+	// },
 	{
 		icon: <FaInstagram />,
-		href: 'https://instagram.com/whitemirrorai',
+		href: 'https://www.instagram.com/wms.pvt.ltd?igsh=ZmxsMm1yMnFyYmph',
 		label: 'Instagram',
 	},
 	{

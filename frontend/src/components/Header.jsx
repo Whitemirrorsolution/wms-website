@@ -62,7 +62,7 @@ function Header() {
           <div className="flex-shrink-0 flex items-center">
             <Link to="/" className="flex items-center gap-2">
               <img
-                src="/logo.jpg"
+                src="https://res.cloudinary.com/dfc3isedv/image/upload/v1754297409/WhatsApp_Image_2025-08-04_at_14.17.51_9ea7ca54_u6zyoz.jpg"
                 alt="WhiteMirror Logo"
                 className="h-8 w-8 sm:h-10 sm:w-10 object-contain drop-shadow"
                 style={{ borderRadius: '8px' }}
