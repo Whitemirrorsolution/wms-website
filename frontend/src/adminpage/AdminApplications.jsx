@@ -10,7 +10,7 @@ const AdminApplications = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/admin/application", { withCredentials: true })
+      .get("https://wms-website.onrender.com/api/admin/application", { withCredentials: true })
       .then((res) => setApplications(res.data))
       .catch((err) => console.error(err));
   }, []);
@@ -63,7 +63,7 @@ const AdminApplications = () => {
                   <td className="py-3 px-4 text-gray-700 whitespace-nowrap">{app.appliedJobTitle}</td>
                   <td className="py-3 px-4 whitespace-nowrap">
                     <a
-                      href={`http://localhost:8000/uploads/${app.resume}`}
+                      href={`https://wms-website.onrender.com/uploads/${app.resume}`}
                       target="_blank"
                       rel="noreferrer"
                       className="inline-block px-3 py-1 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg shadow hover:from-blue-600 hover:to-blue-700 transition duration-200 text-sm font-semibold"
