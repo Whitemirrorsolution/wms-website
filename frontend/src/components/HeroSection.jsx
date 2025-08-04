@@ -22,10 +22,10 @@ function FeatureBadge({ text, color = 'from-blue-500 to-amber-400', variant = 's
 }
 
 const defaultBadges = [
-  { text: 'Web Development', color: 'from-blue-800 to-sky-600', variant: 'solid' },
+  { text: 'Web/App Development', color: 'from-blue-800 to-sky-600', variant: 'solid' },
   { text: 'AI Tools', color: 'from-sky-800 to-cyan-600', variant: 'solid' },
   { text: 'Digital Marketing', color: 'from-blue-800 to-cyan-600', variant: 'solid' },
-  { text: 'Restaurant SaaS', color: 'from-cyan-800 to-blue-600', variant: 'solid' },
+  { text: 'SaaS Software', color: 'from-cyan-800 to-blue-600', variant: 'solid' },
 ];
 
 const defaultStats = [
