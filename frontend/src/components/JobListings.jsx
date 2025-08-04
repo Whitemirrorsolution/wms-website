@@ -1,63 +1,4 @@
-// import { useEffect, useState } from "react";
-// import axios from "axios";
 
-// const JobList = () => {
-//   const [jobs, setJobs] = useState([]);
-
-
-
-//   const handleDelete = async (id) => {
-//   if (!window.confirm("Are you sure you want to delete this job?")) return;
-
-//   try {
-//     await axios.delete(`http://localhost:8000/api/jobs/${id}`, {
-//       withCredentials: true,
-//     });
-//     setJobs(jobs.filter((job) => job._id !== id));
-//   } catch (err) {
-//     console.error("Delete error:", err);
-//     alert("Failed to delete job");
-//   }
-// };
-
-
-//   useEffect(() => {
-//     axios
-//       .get("http://localhost:8000/api/jobs/all", { withCredentials: true })
-//       .then((res) => setJobs(res.data))
-//       .catch((err) => console.error("Error fetching jobs:", err));
-//   }, []);
-
-//   return (
-//     <div className="p-4">
-//       <h2 className="text-xl font-bold mb-4">Posted Jobs</h2>
-//       <div className="space-y-4">
-//         {jobs.map((job) => (
-//           <div
-//             key={job._id}
-//             className="p-4 border rounded-xl shadow bg-white space-y-2"
-//           >
-//             <h3 className="text-lg font-semibold">{job.title}</h3>
-//             <p><strong>Department:</strong> {job.department}</p>
-//             <p><strong>Location:</strong> {job.location}</p>
-//             <p><strong>Type:</strong> {job.jobType}</p>
-//             <p><strong>Posted On:</strong> {new Date(job.createdAt).toLocaleDateString()}</p>
-            
-//           </div>
-//         ))}
-//         <button
-//   onClick={() => handleDelete(job._id)}
-//   className="text-white bg-red-500 px-3 py-1 rounded hover:bg-red-600"
-// >
-//   Delete
-// </button>
-
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default JobList;
 
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -68,7 +9,7 @@ const JobListings = () => {
   const [selectedJob, setSelectedJob] = useState(null);
 
   useEffect(() => {
-    axios.get("http://localhost:8000/api/career/jobs").then((res) => {
+    axios.get("https://wms-website.onrender.com/api/career/jobs").then((res) => {
       setJobs(res.data);
     });
   }, []);
