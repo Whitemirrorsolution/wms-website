@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation ,useNavigate} from 'react-router-dom';
 
 const navLinks = [
-  { name: 'Home', path: '/' },
+  { name: 'Home', path: '/' },                            
   { name: 'About', path: '/about' },
   { name: 'Services', path: '/services' },
   { name: 'Upcoming', path: '/upcoming' },

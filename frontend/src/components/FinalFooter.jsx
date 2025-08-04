@@ -3,12 +3,19 @@ import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaTwitter, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 
 const defaultQuickLinks = [
-	{ label: 'Home', href: '#' },
-	{ label: 'About', href: 'about' },
-	{ label: 'Services', href: 'services' },
-	{ label: 'Upcoming', href: 'upcoming' },
-	{ label: 'Contact', href: 'contact' },
-	{ label: 'Career', href: 'career' },
+	// { label: 'Home', href: '#' },
+	// { label: 'About', href: 'about' },
+	// { label: 'Services', href: 'services' },
+	// { label: 'Upcoming', href: 'upcoming' },
+	// { label: 'Contact', href: 'contact' },
+	// { label: 'Career', href: 'career' },
+
+  { name: 'Home', path: '/' },                            
+  { name: 'About', path: '/about' },
+  { name: 'Services', path: '/services' },
+  { name: 'Upcoming', path: '/upcoming' },
+  { name: 'Contact', path: '/contact' },
+  { name: 'Career', path: '/career' },
 ];
 
 const defaultServices = [
@@ -162,13 +169,13 @@ const FooterCombined = ({
 					   </div>
 					   <ul className="space-y-0 sm:space-y-1">
 						   {quickLinks.map((link, i) => (
-							   <li key={link.label}>
+							   <li key={link.name}>
 								   <motion.a
-									   href={link.href}
+									   href={link.path}
 									   className="hover:text-blue-600 hover:underline underline-offset-4 transition-all duration-300 font-medium text-[10px] xs:text-xs sm:text-sm"
 									   whileHover={{ scale: 1.06, color: '#2563eb' }}
 								   >
-									   {link.label}
+									   {link.name}
 								   </motion.a>
 							   </li>
 						   ))}
