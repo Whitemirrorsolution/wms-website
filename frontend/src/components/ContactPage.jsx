@@ -24,7 +24,7 @@ const ContactPage = () => {
 
   // Fetch services from backend
   useEffect(() => {
-    axios.get("http://localhost:8000/api/services")
+    axios.get("https://wms-website.onrender.com/api/services")
       .then(res => setServices(res.data))
       .catch(err => console.error("Failed to load services", err));
   }, []);
@@ -48,14 +48,14 @@ const ContactPage = () => {
       const finalSubject = showOtherInput ? customSubject : form.subject;
 
       // Send message
-      await axios.post("http://localhost:8000/api/contact", {
+      await axios.post("https://wms-website.onrender.com/api/contact", {
         ...form,
         subject: finalSubject,
       });
 
       // Save custom subject if new
       if (showOtherInput && customSubject) {
-        await axios.post("http://localhost:8000/api/services", { title: customSubject });
+        await axios.post("https://wms-website.onrender.com/api/services", { title: customSubject });
       }
 
       setSuccess("Message sent successfully!");
