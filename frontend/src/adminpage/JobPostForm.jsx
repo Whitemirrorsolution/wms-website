@@ -23,7 +23,7 @@ const JobPostForm = () => {
     setError("");
 
     try {
-      await axios.post("http://localhost:8000/api/jobs/create", formData, {
+      await axios.post("https://wms-website.onrender.com/api/jobs/create", formData, {
         withCredentials: true,
       });
       setSuccess("Job posted successfully!");
