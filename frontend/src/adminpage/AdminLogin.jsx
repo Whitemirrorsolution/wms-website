@@ -16,7 +16,7 @@ const AdminLogin = () => {
     setError("");
 
     try {
-      const res = await axios.post("http://localhost:8000/api/auth/login", form);
+      const res = await axios.post("https://wms-website.onrender.com/api/auth/login", form);
       const token = res.data.token;
       const expireTime = new Date().getTime() + 5 * 60 * 60 * 1000; // 5 hrs
       localStorage.setItem("adminToken", token);
