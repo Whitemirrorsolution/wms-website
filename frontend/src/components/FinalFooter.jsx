@@ -265,8 +265,7 @@ const FooterCombined = ({
 					transition={{ delay: 0.5, duration: 0.7 }}
 				>
 				   <div className="text-[10px] xs:text-xs text-gray-500 text-center">
-						© 2025 WhiteMirror Solutions. All rights reserved. Built with{' '}
-						<span className="text-pink-400">❤</span> by WMS intern team.
+						© 2025 WhiteMirror Solutions. All rights reserved.
 					</div>
 				</motion.div>
 			</motion.footer>
