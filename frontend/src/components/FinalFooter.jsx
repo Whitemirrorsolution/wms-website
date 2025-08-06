@@ -3,13 +3,7 @@ import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaTwitter, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 
 const defaultQuickLinks = [
-	// { label: 'Home', href: '#' },
-	// { label: 'About', href: 'about' },
-	// { label: 'Services', href: 'services' },
-	// { label: 'Upcoming', href: 'upcoming' },
-	// { label: 'Contact', href: 'contact' },
-	// { label: 'Career', href: 'career' },
-
+ 
   { name: 'Home', path: '/' },                            
   { name: 'About', path: '/about' },
   { name: 'Services', path: '/services' },
@@ -34,21 +28,13 @@ const defaultContact = [
 ];
 
 const socials = [
-	// {
-	// 	icon: <FaGithub />,
-	// 	href: 'https://github.com/WhiteMirrorSolutions',
-	// 	label: 'GitHub',
-	// },
+	 
 	{
 		icon: <FaLinkedin />,
 		href: 'https://www.linkedin.com/company/whitemirror-solution-pvt-ltd/posts/?feedView=all',
 		label: 'LinkedIn',
 	},
-	// {
-	// 	icon: <FaTwitter />,
-	// 	href: 'https://twitter.com/whitemirrorai',
-	// 	label: 'Twitter',
-	// },
+	 
 	{
 		icon: <FaInstagram />,
 		href: 'https://www.instagram.com/wms.pvt.ltd?igsh=ZmxsMm1yMnFyYmph',
