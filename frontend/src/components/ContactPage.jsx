@@ -18,7 +18,7 @@ const ContactPage = () => {
     visible: (i = 0) => ({
       opacity: 1,
       y: 0,
-      transition: { delay: i * 0.2, duration: 0.6, ease: "easeOut" },
+      transition: { delay: i * 0.12, duration: 0.3, ease: "easeOut" },
     }),
   };
 
@@ -178,7 +178,7 @@ const ContactPage = () => {
             {[
               { icon: "📍", title: "Address", content: "669, A-2, SCH No.136\nIndore-452010\nMadhya Pradesh, India" },
               { icon: "📞", title: "Phone", content: "+91 79874-35108\nMon - Fri, 9 AM - 6 PM" },
-              { icon: "📧", title: "Email", content: "info@whitemirror.com\nWe'll respond within 24 hours" },
+              { icon: "📧", title: "Email", content: "whitemirrorsolution@gmail.com\nWe'll respond within 24 hours" },
               { icon: "💬", title: "Support", content: "24/7 Technical Support\nAlways here to help" },
             ].map((card, i) => (
               <motion.div key={i} className="bg-white/80 backdrop-blur border border-blue-100 rounded-xl p-4 shadow hover:shadow-md">

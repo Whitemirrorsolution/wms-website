@@ -7,7 +7,7 @@ function FeatureBadge({ text, color = 'from-blue-500 to-amber-400', variant = 's
     <motion.span
       initial={{ opacity: 0, y: 20, scale: 0.9 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      transition={{ delay, duration: 0.5, type: 'spring', stiffness: 200 }}
+    transition={{delay , duration: 0.2, type: 'spring', stiffness: 200 }}
       className={`px-2 py-1 sm:px-3 sm:py-1.5 rounded-full font-semibold text-xs sm:text-sm shadow-md backdrop-blur-sm select-none border border-white/10 ${
         variant === 'solid'
           ? `bg-gradient-to-r ${color} text-white`
@@ -66,8 +66,8 @@ function HeroSection({
       intervals[i] = setInterval(() => {
         const randomX = Math.random() * 20 - 10;
         const randomY = Math.random() * 20 - 10;
-        dot.style.transform = `translate(${randomX}px, ${randomY}px)`;
-        dot.style.transition = 'transform 2s cubic-bezier(0.4,0,0.2,1)';
+  dot.style.transform = `translate(${randomX}px, ${randomY}px)`;
+  dot.style.transition = 'transform 1s cubic-bezier(0.4,0,0.2,1)';
       }, 3000 + i * 500);
     });
     return () => intervals.forEach(clearInterval);
@@ -86,7 +86,7 @@ function HeroSection({
     visible: (i = 1) => ({
       opacity: 1,
       y: 0,
-      transition: { delay: i * 0.18, duration: 0.7, ease: [0.16, 1, 0.3, 1] },
+      transition: { delay: i * 0.18, duration: 0.4, ease: [0.16, 1, 0.3, 1] },
     }),
   };
 
@@ -149,7 +149,7 @@ function HeroSection({
           {/* CTA Buttons */}
           <motion.div className="flex flex-col sm:flex-row gap-1 sm:gap-3 justify-center items-center pt-1 sm:pt-4" custom={3} variants={fadeUp}>
             <motion.button
-              whileHover={{ scale: 1.05, boxShadow: '0 8px 32px 0 rgba(59,130,246,0.15)' }}
+              whileHover={{ scale: 1.03, boxShadow: '0 8px 32px 0 rgba(59,130,246,0.15)' }}
               className="group relative px-3 py-2 sm:px-6 sm:py-3 text-xs sm:text-base bg-gradient-to-r from-blue-800 via-sky-600 to-cyan-600 text-white font-semibold rounded-md transition-all duration-300 transform hover:scale-105 hover:shadow-xl hover:shadow-sky-400/25 focus:outline-none focus:ring-2 focus:ring-sky-400 border border-sky-100"
               onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
               aria-label="Get Started Today"
@@ -216,7 +216,7 @@ function AnimatedCounter({ value, suffix, inView }) {
     if (inView) {
       let start = 0;
       const end = value;
-      const duration = 1000;
+      const duration = 400;
       const increment = end / (duration / 16);
       let raf;
       function animate() {

@@ -35,7 +35,7 @@ const fadeInUp = {
 	visible: (i) => ({
 		opacity: 1,
 		y: 0,
-		transition: { delay: i * 0.2, duration: 0.5 },
+		transition: { delay: i * 0.12, duration: 0.25 },
 	}),
 };
 
@@ -110,7 +110,7 @@ const InnovationRoadmap = () => {
 				   className="mt-4 sm:mt-6 md:mt-10 bg-white/90 backdrop-blur-2xl border border-slate-200 shadow-2xl p-5 xs:p-7 sm:p-10 md:p-12 rounded-2xl md:rounded-3xl text-center relative overflow-hidden"
 				   initial={{ opacity: 0, scale: 0.95 }}
 				   whileInView={{ opacity: 1, scale: 1 }}
-				   transition={{ duration: 0.6, delay: 0.4 }}
+				   transition={{ duration: 0.3, delay: 0.2 }}
 				   viewport={{ once: true }}
 			   >
 				   {/* Gradient accent background */}

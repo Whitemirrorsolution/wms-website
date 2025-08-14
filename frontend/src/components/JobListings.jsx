@@ -25,6 +25,16 @@ const JobListings = () => {
           <div className="h-1 w-24 bg-blue-400 rounded-full"></div>
         </div>
 
+         {Array.isArray(jobs) && jobs.length === 0 ? (
+            <div className="text-center bg-white shadow-lg rounded-lg p-6 border border-gray-200 max-w-md mx-auto mt-10">
+            <div className="text-4xl mb-3">📭</div>
+            <p className="text-xl font-semibold text-blue-600/100 mb-2">No jobs posted yet</p>
+            <p className="text-gray-500 text-sm">
+              Please check back later for new openings.
+            </p>
+            </div>
+
+              ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {jobs.map((job, index) => (
             <div
@@ -50,7 +60,7 @@ const JobListings = () => {
               <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
           ))}
-        </div>
+        </div>)}
         {selectedJob && (
           <ApplyModal job={selectedJob} onClose={() => setSelectedJob(null)} />
         )}

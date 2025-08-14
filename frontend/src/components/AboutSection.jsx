@@ -6,44 +6,54 @@ import { MapPin, Phone } from 'lucide-react';
 function FeatureCard({ icon, title, desc, delay = 0 }) {
   return (
     <motion.div
-      className="flex items-start space-x-2 sm:space-x-3 bg-white rounded-xl p-2 sm:p-4 shadow border border-gray-200 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ delay, duration: 0.7, type: 'spring', stiffness: 200 }}
-      tabIndex={0}
-      aria-label={title}
-    >
-      <div className="w-6 h-6 sm:w-8 sm:h-8 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1 text-white text-base sm:text-lg font-bold shadow-sm">
-        {icon}
-      </div>
-      <div>
-        <h4 className="font-Inter font-semibold text-gray-900 mb-0.5 text-sm sm:text-base">{title}</h4>
-        <p className="font-Inter text-xs sm:text-sm text-gray-600">{desc}</p>
-      </div>
-    </motion.div>
+  className="flex items-start space-x-2 sm:space-x-3 bg-white rounded-xl p-2 sm:p-4 shadow border border-gray-200 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.3 }}
+  transition={{ duration: 0.15, ease: "easeOut" }}
+  tabIndex={0}
+  aria-label={title}
+>
+  <div className="w-6 h-6 sm:w-8 sm:h-8 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1 text-white text-base sm:text-lg font-bold shadow-sm">
+    {icon}
+  </div>
+  <div>
+    <h4 className="font-Inter font-semibold text-gray-900 mb-0.5 text-sm sm:text-base">{title}</h4>
+    <p className="font-Inter text-xs sm:text-sm text-gray-600">{desc}</p>
+  </div>
+</motion.div>
+
   );
 }
 
 // Reusable MissionCard
 function MissionCard({ icon, title, desc, bg = 'bg-blue-100', delay = 0 }) {
   return (
-    <motion.div
-      className={`text-center p-2 sm:p-8 bg-white rounded-xl shadow-md border border-gray-200 hover:shadow-xl hover:border-blue-400 transition-all duration-300 hover:-translate-y-1 ${bg}`}
-      initial={{ opacity: 0, scale: 0.95, y: 30 }}
-      whileInView={{ opacity: 1, scale: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ delay, duration: 0.7, type: 'spring', stiffness: 200 }}
-      whileHover={{ scale: 1.04, borderColor: '#3b82f6' }}
-      tabIndex={0}
-      aria-label={title}
-    >
-      <div className={`w-6 h-6 sm:w-16 sm:h-16 ${bg} rounded-full flex items-center justify-center mx-auto mb-1 sm:mb-6 text-base sm:text-2xl`} role="img" aria-label={title + ' icon'}>
-        {icon}
-      </div>
-      <h3 className="font-Inter text-[13px] sm:text-xl font-bold text-gray-900 mb-0.5 sm:mb-4">{title}</h3>
-      <p className="font-Inter text-[11px] sm:text-sm text-gray-600 leading-snug">{desc}</p>
-    </motion.div>
+   <motion.div
+  className={`text-center p-2 sm:p-8 bg-white rounded-xl shadow-md border border-gray-200 hover:shadow-xl hover:border-blue-400 transition-all duration-300 hover:-translate-y-1 ${bg}`}
+  initial={{ opacity: 0, scale: 0.98, y: 15 }}
+  whileInView={{ opacity: 1, scale: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.3 }}
+  transition={{ duration: 0.15, ease: "easeOut" }}
+  whileHover={{ scale: 1.03, borderColor: '#3b82f6' }}
+  tabIndex={0}
+  aria-label={title}
+>
+  <div
+    className={`w-6 h-6 sm:w-16 sm:h-16 ${bg} rounded-full flex items-center justify-center mx-auto mb-1 sm:mb-6 text-base sm:text-2xl`}
+    role="img"
+    aria-label={title + ' icon'}
+  >
+    {icon}
+  </div>
+  <h3 className="font-Inter text-[13px] sm:text-xl font-bold text-gray-900 mb-0.5 sm:mb-4">
+    {title}
+  </h3>
+  <p className="font-Inter text-[11px] sm:text-sm text-gray-600 leading-snug">
+    {desc}
+  </p>
+</motion.div>
+
   );
 }
 
@@ -67,7 +77,7 @@ function AnimatedCounter({ value, inView, suffix = '' }) {
     if (inView) {
       let start = 0;
       const end = value;
-      const duration = 1000;
+  const duration = 400;
       const increment = end / (duration / 16);
       function animate() {
         start += increment;
@@ -107,14 +117,14 @@ function AboutSection({
 
   const fadeLeft = {
     hidden: { opacity: 0, x: -40 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] } },
   };
   const fadeUp = {
     hidden: { opacity: 0, y: 30 },
     visible: (i = 1) => ({
       opacity: 1,
       y: 0,
-      transition: { delay: i * 0.15, duration: 0.8, ease: [0.16, 1, 0.3, 1] },
+      transition: { delay: i * 0.15, duration: 0.3, ease: [0.16, 1, 0.3, 1] },
     }),
   };
 
@@ -186,8 +196,8 @@ function AboutSection({
               ref={statsCardRef}
               className="absolute -bottom-3 -left-3 sm:-bottom-6 sm:-left-6 bg-white/90 rounded-xl shadow-xl p-3 sm:p-6 border border-sky-100"
               initial={{ opacity: 0, scale: 0.9, y: 30 }}
-              animate={statsInView ? { opacity: 1, scale: 1, y: 0 } : {}}
-              transition={{ type: 'spring', stiffness: 200, bounce: 0.4, duration: 0.8 }}
+              animate={statsInView ? { opacity: 1, scale: 1, y: 0, transition: { type: 'spring', stiffness: 200, bounce: 0.4, duration: 0.4 } } : {}}
+           transition={{ type: 'spring', stiffness: 200, bounce: 0.4, duration: 0.4 }}
             >
               <div className="text-center">
                 <div className="text-lg sm:text-3xl font-bold text-blue-600 mb-0.5 sm:mb-1">
@@ -216,7 +226,7 @@ function AboutSection({
           className="py-8 sm:py-16 bg-white/90 backdrop-blur-md"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
           viewport={{ once: true }}
         >
           <div className="container mx-auto px-4 sm:px-6 lg:px-20">
@@ -260,7 +270,7 @@ function AboutSection({
           className="py-8 sm:py-16 bg-gradient-to-br from-white via-sky-100 to-cyan-50/80 backdrop-blur-md"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
           viewport={{ once: true }}
         >
           <div className="container mx-auto px-1 sm:px-6 lg:px-20 text-center">

@@ -1,13 +1,13 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom'; // ✅ Only use Routes here
+import { Routes, Route } from 'react-router-dom'; 
 
 import Header from './components/Header';
 import HeroSection from './components/HeroSection';
 import AboutSection from './components/AboutSection';
 import ServicesSection from './components/ServicesSection';
 import UpcomingSection from './components/UpcomingSection';
-// import ContactSection from './components/ContactSection';
 import ContactPage from './components/ContactPage';
+
 
 import FinalFooter from './components/FinalFooter';
 import ScrollToTop from './components/ScrollToTop';

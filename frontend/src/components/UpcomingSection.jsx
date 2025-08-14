@@ -54,7 +54,7 @@ const fadeInUp = {
   show: (i) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.2, duration: 0.6 },
+    transition: { delay: i * 0.12, duration: 0.3 },
   }),
 };
 
@@ -93,7 +93,7 @@ const UpcomingSection = () => {
           className="inline-block px-4 xs:px-5 py-1.5 xs:py-2 rounded-full bg-gradient-to-r from-blue-800 via-sky-500 to-cyan-400 text-white font-semibold shadow-lg mb-6 sm:mb-12 tracking-wide text-xs xs:text-sm sm:text-lg border-2 border-sky-100/40 drop-shadow-xl"
           initial={{ scale: 0 }}
           whileInView={{ scale: 1 }}
-          transition={{ delay: 0.5, duration: 0.4 }}
+          transition={{ delay: 0.5, duration: 0.2 }}
           viewport={{ once: true }}
         >
           🚀 Coming Soon - 2025
@@ -111,7 +111,7 @@ const UpcomingSection = () => {
               variants={fadeInUp}
               viewport={{ once: true }}
               whileHover={{ scale: 1.04 }}
-              transition={{ type: 'spring', stiffness: 300 }}
+              transition={{ type: 'spring', stiffness: 300, duration: 0.2 }}
             >
               {/* Accent gradient ring */}
               <div className="absolute -top-2 xs:-top-3 left-1/2 -translate-x-1/2 w-10 xs:w-14 sm:w-16 md:w-20 h-10 xs:h-14 sm:h-16 md:h-20 bg-gradient-to-tr from-blue-400 via-sky-300 to-cyan-200 opacity-20 blur-2xl rounded-full z-0" />

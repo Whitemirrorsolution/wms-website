@@ -74,21 +74,21 @@ const defaultProcessSteps = [
 
 // Animation variants
 const fadeUp = {
-	hidden: { opacity: 0, y: 40 },
+	hidden: { opacity: 0, y: 25 },
 	visible: (i = 1) => ({
 		opacity: 1,
 		y: 0,
-		transition: { delay: i * 0.15, duration: 0.8, ease: [0.16, 1, 0.3, 1] },
+		transition: { delay: i * 0.15, duration: 0.25, ease: [0.16, 1, 0.3, 1] },
 	}),
 };
 const fadeDown = {
-	hidden: { opacity: 0, y: -40 },
-	visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } },
+	hidden: { opacity: 0, y: -25 },
+	visible: { opacity: 1, y: 0, transition: { duration: 0.25, ease: [0.16, 1, 0.3, 1] } },
 };
 const stagger = {
 	visible: {
 		transition: {
-			staggerChildren: 0.15,
+			staggerChildren: 0.05,
 		},
 	},
 };
@@ -102,7 +102,7 @@ function ServiceCard({ icon, title, desc, features, accent, index }) {
 	  viewport={{ once: true, amount: 0.3 }}
 	  custom={index + 1}
 	  variants={fadeUp}
-	  whileHover={{ scale: 1.06 }}
+	  whileHover={{ scale: 1.05 }}
 	  tabIndex={0}
 	  aria-label={title}
 	>
@@ -114,7 +114,7 @@ function ServiceCard({ icon, title, desc, features, accent, index }) {
 		  alt={title + ' icon'}
 		  className="h-8 w-8 sm:h-14 sm:w-14 object-cover mx-auto transition-transform duration-300 group-hover:scale-110 drop-shadow-xl"
 		  loading="lazy"
-		  whileHover={{ rotate: 10, scale: 1.15 }}
+		  whileHover={{ rotate: 10, scale: 1.05 }}
 		/>
 	  </div>
 	  <h3 className="font-Inter font-sans text-base sm:text-xl font-extrabold text-gray-900 mb-1 sm:mb-2 bg-gradient-to-r from-blue-800 via-sky-500 to-cyan-400 bg-clip-text text-transparent drop-shadow-lg relative z-10">{title}</h3>
@@ -146,7 +146,7 @@ function ProcessStep({ step, title, desc, icon, index }) {
 		>
 			<motion.div
 				className="w-12 h-12 flex items-center justify-center rounded-full bg-blue-500 text-white font-bold text-lg mb-3 shadow-lg transition-transform duration-300 animate-bounce"
-				whileHover={{ scale: 1.12 }}
+				whileHover={{ scale: 1.10 }}
 			>
 				{icon || step}
 			</motion.div>
@@ -250,7 +250,7 @@ function ServicesSection({ services = defaultServices, processSteps = defaultPro
 	  </p>
 	  <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
 		<motion.button
-		  className="px-4 py-2 sm:px-8 sm:py-3 bg-gradient-to-r from-blue-800 via-sky-500 to-cyan-400 text-white font-bold rounded-lg sm:rounded-xl shadow-lg hover:scale-105 transition-transform text-xs sm:text-base"
+		  className="px-4 py-2 sm:px-8 sm:py-3 bg-gradient-to-r from-blue-800 via-sky-500 to-cyan-400 text-white font-bold rounded-lg sm:rounded-xl shadow-lg  text-xs sm:text-base"
 		  whileHover={{
 			scale: 1.08,
 			boxShadow: '0 8px 32px 0 rgba(59,130,246,0.15)',
