@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link, useLocation ,useNavigate} from 'react-router-dom';
 import { FaLinkedin, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 
 const defaultServices = [
@@ -102,24 +103,24 @@ const FooterCombined = ({
 								Quick Links
 							</div>
 							<ul className="space-y-0 sm:space-y-1">
-								<li>
-									<motion.a href="/" className="hover:text-blue-600 hover:underline underline-offset-4 transition-all duration-300 font-medium text-[10px] xs:text-xs sm:text-sm" whileHover={{ scale: 1.06, color: '#2563eb' }}>Home</motion.a>
-								</li>
-								<li>
-									<motion.a href="/about" className="hover:text-blue-600 hover:underline underline-offset-4 transition-all duration-300 font-medium text-[10px] xs:text-xs sm:text-sm" whileHover={{ scale: 1.06, color: '#2563eb' }}>About</motion.a>
-								</li>
-								<li>
-									<motion.a href="/services" className="hover:text-blue-600 hover:underline underline-offset-4 transition-all duration-300 font-medium text-[10px] xs:text-xs sm:text-sm" whileHover={{ scale: 1.06, color: '#2563eb' }}>Services</motion.a>
-								</li>
-								<li>
-									<motion.a href="/upcoming" className="hover:text-blue-600 hover:underline underline-offset-4 transition-all duration-300 font-medium text-[10px] xs:text-xs sm:text-sm" whileHover={{ scale: 1.06, color: '#2563eb' }}>Upcoming</motion.a>
-								</li>
-								<li>
-									<motion.a href="/contact" className="hover:text-blue-600 hover:underline underline-offset-4 transition-all duration-300 font-medium text-[10px] xs:text-xs sm:text-sm" whileHover={{ scale: 1.06, color: '#2563eb' }}>Contact</motion.a>
-								</li>
-								<li>
-									<motion.a href="/career" className="hover:text-blue-600 hover:underline underline-offset-4 transition-all duration-300 font-medium text-[10px] xs:text-xs sm:text-sm" whileHover={{ scale: 1.06, color: '#2563eb' }}>Career</motion.a>
-								</li>
+								<Link to="/" className="hover:text-blue-600 hover:underline underline-offset-4 transition-all duration-300 font-medium text-[10px] xs:text-xs sm:text-sm" whileHover={{ scale: 1.06, color: '#2563eb' }}>
+									<motion.a >Home</motion.a>
+								</Link>
+								<Link to="/about" className="hover:text-blue-600 hover:underline underline-offset-4 transition-all duration-300 font-medium text-[10px] xs:text-xs sm:text-sm" whileHover={{ scale: 1.06, color: '#2563eb' }}>
+									<motion.a >About</motion.a>
+								</Link>
+								<Link to="/services" className="hover:text-blue-600 hover:underline underline-offset-4 transition-all duration-300 font-medium text-[10px] xs:text-xs sm:text-sm" whileHover={{ scale: 1.06, color: '#2563eb' }}>
+									<motion.a >Services</motion.a>
+								</Link>
+								<Link to="/upcoming">
+									<motion.a  className="hover:text-blue-600 hover:underline underline-offset-4 transition-all duration-300 font-medium text-[10px] xs:text-xs sm:text-sm" whileHover={{ scale: 1.06, color: '#2563eb' }}>Upcoming</motion.a>
+								</Link>
+								<Link to="/contact" className="hover:text-blue-600 hover:underline underline-offset-4 transition-all duration-300 font-medium text-[10px] xs:text-xs sm:text-sm" whileHover={{ scale: 1.06, color: '#2563eb' }}>
+									<motion.a >Contact</motion.a>
+								</Link>
+								<Link to="/career" className="hover:text-blue-600 hover:underline underline-offset-4 transition-all duration-300 font-medium text-[10px] xs:text-xs sm:text-sm" whileHover={{ scale: 1.06, color: '#2563eb' }} >
+									<motion.a  >Career</motion.a>
+								</Link>
 							</ul>
 						</motion.div>
 
