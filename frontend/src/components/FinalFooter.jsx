@@ -97,7 +97,7 @@ const FooterCombined = ({
 	contactDetails = defaultContact,
 	address = '669, A-2, SCH No.136, Indore-452010',
 	phoneNumber = '79874-35108',
-	companyName = 'WhiteMirror Solutions',
+	companyName = 'WhiteMirror Solution',
 }) => {
 	return (
 <>
@@ -133,7 +133,7 @@ const FooterCombined = ({
 		}}
 	>
 	<div className="text-lg xs:text-xl sm:text-2xl font-extrabold text-gray-900 flex items-center gap-1 xs:gap-2 mb-1 xs:mb-2 animate-pulse">
-		WhiteMirror <span className="text-sky-500">Solutions</span>
+		WhiteMirror <span className="text-sky-500">Solution</span>
 	</div>
 	<div className="text-xs xs:text-sm sm:text-base mb-1 xs:mb-2 text-gray-600">Elevating Digital Innovation</div>
 	<motion.div
@@ -248,7 +248,7 @@ const FooterCombined = ({
 			transition={{ delay: 0.5, duration: 0.3 }}
 		>
 			<div className="text-[10px] xs:text-xs text-gray-500 text-center">
-				© 2025 WhiteMirror Solutions. All rights reserved.
+				© 2025 WhiteMirror Solution pvt ltd. All rights reserved.
 			</div>
 		</motion.div>
 	</motion.footer>
