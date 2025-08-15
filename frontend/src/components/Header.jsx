@@ -67,7 +67,7 @@ function Header() {
                 className="h-8 w-8 sm:h-10 sm:w-10 object-contain drop-shadow"
                 style={{ borderRadius: '8px' }}
               />
-              <span className="hidden lg:inline font-Inter text-xs font-semibold text-gray-600 tracking-tight ml-1">WhiteMirror Solutions</span>
+              <span className="hidden lg:inline font-Inter text-xs font-semibold text-gray-600 tracking-tight ml-1">WhiteMirror Solution</span>
             </Link>
           </div>
 
