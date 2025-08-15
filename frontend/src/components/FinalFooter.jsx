@@ -99,30 +99,43 @@ const FooterCombined = ({
 					<div className="col-span-1 sm:col-span-2 flex flex-row gap-2 xs:gap-4 sm:gap-6 items-start w-full">
 						{/* Quick Links (Manual) */}
 						<motion.div custom={2} variants={fadeInVariants} className="w-1/2">
-							<div className="text-xs xs:text-sm sm:text-base font-semibold text-gray-900 mb-1 xs:mb-2">
-								Quick Links
-							</div>
-							<ul className="space-y-0 sm:space-y-1">
-								<Link to="/" className="hover:text-blue-600 hover:underline underline-offset-4 transition-all duration-300 font-medium text-[10px] xs:text-xs sm:text-sm" whileHover={{ scale: 1.06, color: '#2563eb' }}>
-									<motion.a >Home</motion.a>
-								</Link>
-								<Link to="/about" className="hover:text-blue-600 hover:underline underline-offset-4 transition-all duration-300 font-medium text-[10px] xs:text-xs sm:text-sm" whileHover={{ scale: 1.06, color: '#2563eb' }}>
-									<motion.a >About</motion.a>
-								</Link>
-								<Link to="/services" className="hover:text-blue-600 hover:underline underline-offset-4 transition-all duration-300 font-medium text-[10px] xs:text-xs sm:text-sm" whileHover={{ scale: 1.06, color: '#2563eb' }}>
-									<motion.a >Services</motion.a>
-								</Link>
-								<Link to="/upcoming">
-									<motion.a  className="hover:text-blue-600 hover:underline underline-offset-4 transition-all duration-300 font-medium text-[10px] xs:text-xs sm:text-sm" whileHover={{ scale: 1.06, color: '#2563eb' }}>Upcoming</motion.a>
-								</Link>
-								<Link to="/contact" className="hover:text-blue-600 hover:underline underline-offset-4 transition-all duration-300 font-medium text-[10px] xs:text-xs sm:text-sm" whileHover={{ scale: 1.06, color: '#2563eb' }}>
-									<motion.a >Contact</motion.a>
-								</Link>
-								<Link to="/career" className="hover:text-blue-600 hover:underline underline-offset-4 transition-all duration-300 font-medium text-[10px] xs:text-xs sm:text-sm" whileHover={{ scale: 1.06, color: '#2563eb' }} >
-									<motion.a  >Career</motion.a>
-								</Link>
-							</ul>
-						</motion.div>
+	<div className="text-xs xs:text-sm sm:text-base font-semibold text-gray-900 mb-1 xs:mb-2">
+		Quick Links
+	</div>
+	<ul className="space-y-0 sm:space-y-1">
+		<li>
+			<Link to="/" className="hover:text-blue-600 hover:underline underline-offset-4 transition-all duration-300 font-medium text-[10px] xs:text-xs sm:text-sm">
+				<motion.span whileHover={{ scale: 1.06, color: '#2563eb' }}>Home</motion.span>
+			</Link>
+		</li>
+		<li>
+			<Link to="/about" className="hover:text-blue-600 hover:underline underline-offset-4 transition-all duration-300 font-medium text-[10px] xs:text-xs sm:text-sm">
+				<motion.span whileHover={{ scale: 1.06, color: '#2563eb' }}>About</motion.span>
+			</Link>
+		</li>
+		<li>
+			<Link to="/services" className="hover:text-blue-600 hover:underline underline-offset-4 transition-all duration-300 font-medium text-[10px] xs:text-xs sm:text-sm">
+				<motion.span whileHover={{ scale: 1.06, color: '#2563eb' }}>Services</motion.span>
+			</Link>
+		</li>
+		<li>
+			<Link to="/upcoming" className="hover:text-blue-600 hover:underline underline-offset-4 transition-all duration-300 font-medium text-[10px] xs:text-xs sm:text-sm">
+				<motion.span whileHover={{ scale: 1.06, color: '#2563eb' }}>Upcoming</motion.span>
+			</Link>
+		</li>
+		<li>
+			<Link to="/contact" className="hover:text-blue-600 hover:underline underline-offset-4 transition-all duration-300 font-medium text-[10px] xs:text-xs sm:text-sm">
+				<motion.span whileHover={{ scale: 1.06, color: '#2563eb' }}>Contact</motion.span>
+			</Link>
+		</li>
+		<li>
+			<Link to="/career" className="hover:text-blue-600 hover:underline underline-offset-4 transition-all duration-300 font-medium text-[10px] xs:text-xs sm:text-sm">
+				<motion.span whileHover={{ scale: 1.06, color: '#2563eb' }}>Career</motion.span>
+			</Link>
+		</li>
+	</ul>
+</motion.div>
+
 
 						{/* Services */}
 						<motion.div custom={3} variants={fadeInVariants} className="w-1/2">
