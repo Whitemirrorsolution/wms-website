@@ -4,7 +4,7 @@ import { FaGithub, FaLinkedin, FaTwitter, FaInstagram, FaWhatsapp } from 'react-
 
 const defaultQuickLinks = [
  
-  { name: 'Home', path: '/' },                            
+   { name: 'Home', path: '/' },                            
   { name: 'About', path: '/about' },
   { name: 'Services', path: '/services' },
   { name: 'Upcoming', path: '/upcoming' },
