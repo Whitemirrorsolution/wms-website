@@ -96,7 +96,7 @@ function AnimatedCounter({ value, inView, suffix = '' }) {
 }
 
 function AboutSection({
-  heading = 'About WhiteMirror Solutions',
+  heading = 'About WhiteMirror Solution',
   subtext = 'Pioneering digital transformation with cutting-edge technology solutions that drive business growth and innovation.',
   features = defaultFeatures,
   missionCards = defaultMissionCards,
