@@ -126,9 +126,9 @@ const InnovationRoadmap = () => {
 					   <button className="bg-gradient-to-r from-blue-800 via-sky-500 to-cyan-400 text-white font-bold px-4 xs:px-6 sm:px-8 py-2 xs:py-2.5 sm:py-3 rounded-lg sm:rounded-xl shadow-lg hover:scale-105 transition-transform text-xs xs:text-sm sm:text-base">
 						   Get Early Access
 					   </button>
-					   <button className="bg-white/90 border border-sky-400 text-sky-700 font-semibold px-4 xs:px-6 sm:px-8 py-2 xs:py-2.5 sm:py-3 rounded-lg sm:rounded-xl shadow hover:bg-sky-50 hover:text-sky-900 transition text-xs xs:text-sm sm:text-base">
+					   {/* <button className="bg-white/90 border border-sky-400 text-sky-700 font-semibold px-4 xs:px-6 sm:px-8 py-2 xs:py-2.5 sm:py-3 rounded-lg sm:rounded-xl shadow hover:bg-sky-50 hover:text-sky-900 transition text-xs xs:text-sm sm:text-base">
 						   Learn More
-					   </button>
+					   </button> */}
 				   </div>
 			   </motion.div>
 			</div>

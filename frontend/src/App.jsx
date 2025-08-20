@@ -7,6 +7,8 @@ import AboutSection from './components/AboutSection';
 import ServicesSection from './components/ServicesSection';
 import UpcomingSection from './components/UpcomingSection';
 import ContactPage from './components/ContactPage';
+import JobListings from "./components/JobListings";
+// import CareerPage from '../components/CareerPage';
 
 
 import FinalFooter from './components/FinalFooter';
@@ -16,22 +18,9 @@ import AdminLogin from './adminpage/AdminLogin';
 import AdminDashboard from './adminpage/AdminDashboard';
 import AdminApplications from './adminpage/AdminApplications';
 import AdminContacts from './adminpage/AdminContacts';
-import ProtectedAdminRoute from './context/ProtectedAdminRoute'; // ✅ Import the protected route
+import ProtectedAdminRoute from './context/ProtectedAdminRoute'; 
 import { useLocation } from 'react-router-dom';
 
-function HomePage() {
-  return (
-    <>
-      <HeroSection />
-      <AboutSection />
-      <ServicesSection />
-      <UpcomingSection />
-      <ContactPage />
-      <FinalFooter />
-      <ScrollToTop />
-    </>
-  );
-}
 
 function App() {
     const location = useLocation();
@@ -40,20 +29,20 @@ function App() {
     <>
       {!isAdminRoute && <Header />}
       <Routes>
-        
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<Home />} />
         <Route path="/about" element={<AboutSection />} />
         <Route path="/services" element={<ServicesSection />} />
         <Route path="/upcoming" element={<UpcomingSection />} />
-        <Route path="/contact" element={<ContactPage/>} />
-        <Route path="/career" element={<Home/>} />
-        
+        <Route path="/contact" element={<ContactPage />} />
+        <Route path="/career" element={<JobListings />} />
         <Route path="/admin/login" element={<AdminLogin />} />
         <Route path="/admin/dashboard" element={<ProtectedAdminRoute><AdminDashboard /></ProtectedAdminRoute>} />
         <Route path="/admin/application" element={<AdminApplications />} />
         <Route path="/admin/contact" element={<AdminContacts />} />
       </Routes>
-   </>
+      {!isAdminRoute && <FinalFooter />}
+      {!isAdminRoute && <ScrollToTop />}
+    </>
   );
 }
 

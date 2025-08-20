@@ -14,7 +14,8 @@ const defaultServices = [
 
 const defaultContact = [
 	{ icon: '📍', label: 'Indore, MP' },
-	{ icon: '📞', label: '79874-35108' },
+	{ icon: '📞', label: '+91 79874-35108' },
+	{ icon: '📞', label: '+91 72230-26011' },
 	{ icon: '✉', label: 'whitemirrorsolution@gmail.com' },
 ];
 
@@ -136,88 +137,87 @@ const FooterCombined = ({
 	</ul>
 </motion.div>
 
+		{/* Services */}
+		<motion.div custom={3} variants={fadeInVariants} className="w-1/2">
+			<div className="text-xs xs:text-sm sm:text-base font-semibold text-gray-900 mb-1 xs:mb-2">
+				Services
+			</div>
+			<ul className="space-y-2 xs:space-y-1">
+				{services.map((srv) => (
+					<li key={srv.label} className="flex items-center gap-1 xs:gap-2">
+						<motion.span className="text-xs xs:text-sm sm:text-base" whileHover={{ scale: 1.12, color: '#38bdf8' }}>
+							{srv.icon}
+						</motion.span>
+						<span className="hover:text-blue-600 underline-offset-4 transition-all duration-300 font-medium text-[10px] xs:text-xs sm:text-sm">
+							{srv.label}
+						</span>
+					</li>
+				))}
+			</ul>
+		</motion.div>
+	</div>
 
-						{/* Services */}
-						<motion.div custom={3} variants={fadeInVariants} className="w-1/2">
-							<div className="text-xs xs:text-sm sm:text-base font-semibold text-gray-900 mb-1 xs:mb-2">
-								Services
-							</div>
-							<ul className="space-y-2 xs:space-y-1">
-								{services.map((srv) => (
-									<li key={srv.label} className="flex items-center gap-1 xs:gap-2">
-										<motion.span className="text-xs xs:text-sm sm:text-base" whileHover={{ scale: 1.12, color: '#38bdf8' }}>
-											{srv.icon}
-										</motion.span>
-										<span className="hover:text-blue-600 underline-offset-4 transition-all duration-300 font-medium text-[10px] xs:text-xs sm:text-sm">
-											{srv.label}
-										</span>
-									</li>
-								))}
-							</ul>
-						</motion.div>
-					</div>
+	{/* Contact Info */}
+	<motion.div custom={4} variants={fadeInVariants}>
+		<div className="text-base xs:text-lg font-semibold text-gray-900 mb-2 xs:mb-3">Contact</div>
+		<ul className="space-y-0.5 sm:space-y-3 mb-2 xs:mb-4">
+			{contactDetails.map((c) => (
+				<li key={c.label} className="flex items-center gap-3">
+					<motion.span
+						className="bg-blue-100 text-blue-600 w-7 h-7 xs:w-8 xs:h-8 sm:w-9 sm:h-9 flex items-center justify-center rounded-full text-base xs:text-lg sm:text-xl shadow-md"
+						whileHover={{ scale: 1.2, color: '#2563eb' }}
+					>
+						{c.icon}
+					</motion.span>
+					<span className="text-gray-700 font-medium text-xs xs:text-sm sm:text-base">
+						{c.label}
+					</span>
+				</li>
+			))}
+		</ul>
 
-					{/* Contact Info */}
-					<motion.div custom={4} variants={fadeInVariants}>
-						<div className="text-base xs:text-lg font-semibold text-gray-900 mb-2 xs:mb-3">Contact</div>
-						<ul className="space-y-0.5 sm:space-y-3 mb-2 xs:mb-4">
-							{contactDetails.map((c) => (
-								<li key={c.label} className="flex items-center gap-3">
-									<motion.span
-										className="bg-blue-100 text-blue-600 w-7 h-7 xs:w-8 xs:h-8 sm:w-9 sm:h-9 flex items-center justify-center rounded-full text-base xs:text-lg sm:text-xl shadow-md"
-										whileHover={{ scale: 1.2, color: '#2563eb' }}
-									>
-										{c.icon}
-									</motion.span>
-									<span className="text-gray-700 font-medium text-xs xs:text-sm sm:text-base">
-										{c.label}
-									</span>
-								</li>
-							))}
-						</ul>
-
-						{/* Socials */}
-						{showSocials && (
-							<div className="flex justify-evenly xs:gap-3 sm:gap-4 mt-4">
-								{socials.map((s) => (
-									<motion.a
-										key={s.label}
-										href={s.href}
-										target="_blank"
-										rel="noopener noreferrer"
-										aria-label={s.label}
-										className="text-lg xs:text-xl sm:text-2xl text-gray-400 hover:text-blue-600 transition-transform duration-300"
-										whileHover={{
-											scale: 1.25,
-											rotate: [0, 10, -10, 0],
-											color: '#2563eb',
-											boxShadow: '0 4px 24px 0 rgba(56,189,248,0.15)',
-										}}
-										whileTap={{ scale: 1.03 }}
-										transition={{ type: 'spring', stiffness: 400, damping: 18 }}
-									>
-										{s.icon}
-									</motion.a>
-								))}
-							</div>
-						)}
-					</motion.div>
+			{/* Socials */}
+			{showSocials && (
+				<div className="flex justify-evenly xs:gap-3 sm:gap-4 mt-4">
+					{socials.map((s) => (
+						<motion.a
+							key={s.label}
+							href={s.href}
+							target="_blank"
+							rel="noopener noreferrer"
+							aria-label={s.label}
+							className="text-lg xs:text-xl sm:text-2xl text-gray-400 hover:text-blue-600 transition-transform duration-300"
+							whileHover={{
+								scale: 1.25,
+								rotate: [0, 10, -10, 0],
+								color: '#2563eb',
+								boxShadow: '0 4px 24px 0 rgba(56,189,248,0.15)',
+							}}
+							whileTap={{ scale: 1.03 }}
+							transition={{ type: 'spring', stiffness: 400, damping: 18 }}
+						>
+							{s.icon}
+						</motion.a>
+					))}
 				</div>
+			)}
+		</motion.div>
+	</div>
 
-				{/* Footer Bottom */}
-				<motion.div
-					className="border-t border-blue-100/40 mt-4 xs:mt-8 pt-2 xs:pt-4 relative z-10"
-					initial={{ opacity: 0, y: 16 }}
-					whileInView={{ opacity: 1, y: 0 }}
-					viewport={{ once: true, amount: 0.3 }}
-					transition={{ delay: 0.5, duration: 0.3 }}
-				>
-					<div className="text-[10px] xs:text-xs text-gray-500 text-center">
-						© 2025 WhiteMirror Solution Pvt. Ltd. All rights reserved.
-					</div>
-				</motion.div>
-			</motion.footer>
-		</>
+		{/* Footer Bottom */}
+		<motion.div
+			className="border-t border-blue-100/40 mt-4 xs:mt-8 pt-2 xs:pt-4 relative z-10"
+			initial={{ opacity: 0, y: 16 }}
+			whileInView={{ opacity: 1, y: 0 }}
+			viewport={{ once: true, amount: 0.3 }}
+			transition={{ delay: 0.5, duration: 0.3 }}
+		>
+			<div className="text-[10px] xs:text-xs text-gray-500 text-center">
+				© 2025 WhiteMirror Solution Pvt. Ltd. All rights reserved.
+			</div>
+		</motion.div>
+	</motion.footer>
+</>
 	);
 };
 

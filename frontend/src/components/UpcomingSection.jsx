@@ -6,7 +6,6 @@ import InnovationRoadmap  from "./InnovationRoadmap";
 const features = [
   {
     title: "AI Agents",
-    badge: "Q2 2025",
     badgeColor: "bg-blue-600",
     description:
       "Intelligent automation agents that handle customer service, data analysis, and business processes autonomously.",
@@ -20,7 +19,6 @@ const features = [
   },
   {
     title: "Payment Gateways",
-    badge: "Q3 2025",
     badgeColor: "bg-orange-500",
     description:
       "Secure, fast, and flexible payment processing solutions with multi-currency support and fraud protection.",
@@ -34,7 +32,6 @@ const features = [
   },
   {
     title: "Marketing Tools",
-    badge: "Q4 2025",
     badgeColor: "bg-green-600",
     description:
       "Comprehensive marketing automation platform with AI-powered insights and omnichannel campaign management.",
@@ -115,13 +112,7 @@ const UpcomingSection = () => {
             >
               {/* Accent gradient ring */}
               <div className="absolute -top-2 xs:-top-3 left-1/2 -translate-x-1/2 w-10 xs:w-14 sm:w-16 md:w-20 h-10 xs:h-14 sm:h-16 md:h-20 bg-gradient-to-tr from-blue-400 via-sky-300 to-cyan-200 opacity-20 blur-2xl rounded-full z-0" />
-              <div className="flex justify-end relative z-10">
-                <span
-                  className={`text-white text-[10px] xs:text-xs px-2 xs:px-3 py-0.5 xs:py-1 rounded-full font-semibold shadow-md ${feature.badgeColor} border border-white/40`}
-                >
-                  {feature.badge}
-                </span>
-              </div>
+
               <h3 className="text-lg xs:text-xl sm:text-2xl font-extrabold mt-2 xs:mt-3 sm:mt-4 bg-gradient-to-r from-blue-800 via-sky-500 to-cyan-400 bg-clip-text text-transparent drop-shadow-lg font-Inter relative z-10">{feature.title}</h3>
               <p className="mt-2 xs:mt-2.5 sm:mt-3 text-xs xs:text-sm sm:text-base text-gray-700 min-h-[32px] xs:min-h-[48px] sm:min-h-[64px] relative z-10">
                 {feature.description}
