@@ -225,7 +225,7 @@ function AboutSection({
             </h2>
             <p className="text-xs sm:text-lg text-gray-700 mb-4 sm:mb-6 max-w-2xl mx-auto font-medium">
               We are proud to be backed by <span className="font-semibold text-blue-700">Arvi E Energies Pvt Ltd</span> 
-              as our strategic investor and associate partner. They are pioneers in sustainable energy solutions, 
+               as our strategic investor and associate partner. They are pioneers in sustainable energy solutions, 
               providing high-quality <span className="font-semibold">solar panels and installation services</span> 
               for homes and businesses across India.
             </p>
