@@ -6,54 +6,44 @@ import { MapPin, Phone } from 'lucide-react';
 function FeatureCard({ icon, title, desc, delay = 0 }) {
   return (
     <motion.div
-  className="flex items-start space-x-2 sm:space-x-3 bg-white rounded-xl p-2 sm:p-4 shadow border border-gray-200 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
-  initial={{ opacity: 0, y: 20 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true, amount: 0.3 }}
-  transition={{ duration: 0.15, ease: "easeOut" }}
-  tabIndex={0}
-  aria-label={title}
->
-  <div className="w-6 h-6 sm:w-8 sm:h-8 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1 text-white text-base sm:text-lg font-bold shadow-sm">
-    {icon}
-  </div>
-  <div>
-    <h4 className="font-Inter font-semibold text-gray-900 mb-0.5 text-sm sm:text-base">{title}</h4>
-    <p className="font-Inter text-xs sm:text-sm text-gray-600">{desc}</p>
-  </div>
-</motion.div>
-
+      className="flex items-start space-x-2 sm:space-x-3 bg-white rounded-xl p-2 sm:p-4 shadow border border-gray-200 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ delay, duration: 0.7, type: 'spring', stiffness: 200 }}
+      tabIndex={0}
+      aria-label={title}
+    >
+      <div className="w-6 h-6 sm:w-8 sm:h-8 bg-blue-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1 text-white text-base sm:text-lg font-bold shadow-sm">
+        {icon}
+      </div>
+      <div>
+        <h4 className="font-Inter font-semibold text-gray-900 mb-0.5 text-sm sm:text-base">{title}</h4>
+        <p className="font-Inter text-xs sm:text-sm text-gray-600">{desc}</p>
+      </div>
+    </motion.div>
   );
 }
 
 // Reusable MissionCard
 function MissionCard({ icon, title, desc, bg = 'bg-blue-100', delay = 0 }) {
   return (
-   <motion.div
-  className={`text-center p-2 sm:p-8 bg-white rounded-xl shadow-md border border-gray-200 hover:shadow-xl hover:border-blue-400 transition-all duration-300 hover:-translate-y-1 ${bg}`}
-  initial={{ opacity: 0, scale: 0.98, y: 15 }}
-  whileInView={{ opacity: 1, scale: 1, y: 0 }}
-  viewport={{ once: true, amount: 0.3 }}
-  transition={{ duration: 0.15, ease: "easeOut" }}
-  whileHover={{ scale: 1.03, borderColor: '#3b82f6' }}
-  tabIndex={0}
-  aria-label={title}
->
-  <div
-    className={`w-6 h-6 sm:w-16 sm:h-16 ${bg} rounded-full flex items-center justify-center mx-auto mb-1 sm:mb-6 text-base sm:text-2xl`}
-    role="img"
-    aria-label={title + ' icon'}
-  >
-    {icon}
-  </div>
-  <h3 className="font-Inter text-[13px] sm:text-xl font-bold text-gray-900 mb-0.5 sm:mb-4">
-    {title}
-  </h3>
-  <p className="font-Inter text-[11px] sm:text-sm text-gray-600 leading-snug">
-    {desc}
-  </p>
-</motion.div>
-
+    <motion.div
+      className={`text-center p-2 sm:p-8 bg-white rounded-xl shadow-md border border-gray-200 hover:shadow-xl hover:border-blue-400 transition-all duration-300 hover:-translate-y-1 ${bg}`}
+      initial={{ opacity: 0, scale: 0.95, y: 30 }}
+      whileInView={{ opacity: 1, scale: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ delay, duration: 0.7, type: 'spring', stiffness: 200 }}
+      whileHover={{ scale: 1.04, borderColor: '#3b82f6' }}
+      tabIndex={0}
+      aria-label={title}
+    >
+      <div className={`w-6 h-6 sm:w-16 sm:h-16 ${bg} rounded-full flex items-center justify-center mx-auto mb-1 sm:mb-6 text-base sm:text-2xl`} role="img" aria-label={title + ' icon'}>
+        {icon}
+      </div>
+      <h3 className="font-Inter text-[13px] sm:text-xl font-bold text-gray-900 mb-0.5 sm:mb-4">{title}</h3>
+      <p className="font-Inter text-[11px] sm:text-sm text-gray-600 leading-snug">{desc}</p>
+    </motion.div>
   );
 }
 
@@ -77,7 +67,7 @@ function AnimatedCounter({ value, inView, suffix = '' }) {
     if (inView) {
       let start = 0;
       const end = value;
-  const duration = 400;
+      const duration = 1000;
       const increment = end / (duration / 16);
       function animate() {
         start += increment;
@@ -96,11 +86,11 @@ function AnimatedCounter({ value, inView, suffix = '' }) {
 }
 
 function AboutSection({
-  heading = 'About WhiteMirror Solution',
+  heading = 'About WhiteMirror Solutions',
   subtext = 'Pioneering digital transformation with cutting-edge technology solutions that drive business growth and innovation.',
   features = defaultFeatures,
   missionCards = defaultMissionCards,
-  contact = { address: '669, A-2, SCH No.136, Indore-452010', phone: '79874-35108', email: 'contact@whitemirror.in' }
+  contact = { address: '669, A-2, SCH No.136, Indore-452010', phone: '79874-35108', email: 'whitemirrorsolution@gmail.com' }
 }) {
   const sectionRef = useRef(null);
   const gridRef = useRef(null);
@@ -117,14 +107,14 @@ function AboutSection({
 
   const fadeLeft = {
     hidden: { opacity: 0, x: -40 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] } },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } },
   };
   const fadeUp = {
     hidden: { opacity: 0, y: 30 },
     visible: (i = 1) => ({
       opacity: 1,
       y: 0,
-      transition: { delay: i * 0.15, duration: 0.3, ease: [0.16, 1, 0.3, 1] },
+      transition: { delay: i * 0.15, duration: 0.8, ease: [0.16, 1, 0.3, 1] },
     }),
   };
 
@@ -196,8 +186,8 @@ function AboutSection({
               ref={statsCardRef}
               className="absolute -bottom-3 -left-3 sm:-bottom-6 sm:-left-6 bg-white/90 rounded-xl shadow-xl p-3 sm:p-6 border border-sky-100"
               initial={{ opacity: 0, scale: 0.9, y: 30 }}
-              animate={statsInView ? { opacity: 1, scale: 1, y: 0, transition: { type: 'spring', stiffness: 200, bounce: 0.4, duration: 0.4 } } : {}}
-           transition={{ type: 'spring', stiffness: 200, bounce: 0.4, duration: 0.4 }}
+              animate={statsInView ? { opacity: 1, scale: 1, y: 0 } : {}}
+              transition={{ type: 'spring', stiffness: 200, bounce: 0.4, duration: 0.8 }}
             >
               <div className="text-center">
                 <div className="text-lg sm:text-3xl font-bold text-blue-600 mb-0.5 sm:mb-1">
@@ -220,13 +210,43 @@ function AboutSection({
             <MissionCard key={card.title} icon={card.icon} title={card.title} desc={card.desc} bg={card.bg} delay={0.1 + i * 0.15} />
           ))}
         </motion.div>
-          {/* office Images */}
+
+        {/* Strategic Investor & Partner */}
+        <motion.section
+          className="py-8 sm:py-16 bg-white/80 backdrop-blur-md border border-sky-100 rounded-2xl mb-10 sm:mb-20"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <div className="max-w-4xl mx-auto px-4 sm:px-10 text-center">
+            <h2 className="text-xl sm:text-3xl md:text-4xl font-extrabold mb-3 sm:mb-6 bg-gradient-to-r from-blue-800 via-sky-500 to-cyan-400 bg-clip-text text-transparent drop-shadow-lg tracking-tight">
+              Strategic Investor & Associate Partner
+            </h2>
+            <p className="text-xs sm:text-lg text-gray-700 mb-4 sm:mb-6 max-w-2xl mx-auto font-medium">
+              We are proud to be backed by <span className="font-semibold text-blue-700">Arvi E Energies Pvt Ltd</span> 
+              as our strategic investor and associate partner. They are pioneers in sustainable energy solutions, 
+              providing high-quality <span className="font-semibold">solar panels and installation services</span> 
+              for homes and businesses across India.
+            </p>
+            <a
+              href="https://arviesolar.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block mt-2 px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-blue-600 to-cyan-500 text-white rounded-xl shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 text-sm sm:text-base font-semibold"
+            >
+              Visit Arvi E Energies
+            </a>
+          </div>
+        </motion.section>
+
+        {/* office Images */}
         <motion.section
           ref={imagesRef}
           className="py-8 sm:py-16 bg-white/90 backdrop-blur-md"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
           <div className="container mx-auto px-4 sm:px-6 lg:px-20">
@@ -264,36 +284,34 @@ function AboutSection({
             </div>
           </div>
         </motion.section>
-       {/* Contact Info */}
+
+        {/* Contact Info */}
         <motion.section
           ref={contactRef}
           className="py-8 sm:py-16 bg-gradient-to-br from-white via-sky-100 to-cyan-50/80 backdrop-blur-md"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
           <div className="container mx-auto px-1 sm:px-6 lg:px-20 text-center">
-            <h2 className="text-xl sm:text-3xl md:text-4xl font-extrabold mb-3 sm:mb-6 bg-gradient-to-r from-blue-800 via-sky-500 to-cyan-400 bg-clip-text text-transparent drop-shadow-lg tracking-tight inline-block px-3 sm:px-6 py-1 sm:py-2 rounded-xl shadow-md border border-sky-100/60 backdrop-blur-sm">
-              Get In Touch
+            <h2 className="text-xl sm:text-3xl md:text-4xl font-extrabold mb-3 sm:mb-6 bg-gradient-to-r from-blue-800 via-sky-500 to-cyan-400 bg-clip-text text-transparent drop-shadow-lg tracking-tight">
+              Contact Us
             </h2>
-            <p className="text-xs sm:text-lg text-gray-700 mb-4 sm:mb-10 max-w-xs sm:max-w-xl mx-auto font-medium">We'd love to hear from you. Reach out for a consultation, partnership, or just to say hello!</p>
-            <div className="flex flex-row gap-2 sm:gap-12 max-w-xs sm:max-w-2xl mx-auto justify-center items-stretch">
-              <a href="https://www.google.com/maps?q=669,+A-2,+SCH+No.136,+Indore-452010" target="_blank" rel="noopener noreferrer" className="flex-1 flex flex-col items-center text-center group cursor-pointer bg-white/90 border border-sky-100 rounded-xl p-1.5 sm:p-8 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 min-w-0 max-w-[90px] sm:max-w-none">
-                <div className="w-8 h-8 sm:w-14 sm:h-14 bg-gradient-to-br from-blue-100 via-sky-100 to-cyan-100 rounded-full flex items-center justify-center mb-1 sm:mb-4 transform group-hover:scale-110 transition-transform duration-300 shadow-md">
-                  <MapPin className="w-4 h-4 sm:w-7 sm:h-7 text-blue-600" />
-                </div>
-                <h4 className="font-semibold text-gray-900 mb-0.5 sm:mb-2 text-xs sm:text-lg">Address</h4>
-                <p className="hidden sm:flex text-gray-600 text-[10px] sm:text-base text-center font-medium truncate">669, A-2, SCH No.136, Indore-452010</p>
-              </a>
-
-              <a href="tel:+917987435108" className="flex-1 flex flex-col items-center text-center group cursor-pointer bg-white/90 border border-sky-100 rounded-xl p-1.5 sm:p-8 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 min-w-0 max-w-[90px] sm:max-w-none">
-                <div className="w-8 h-8 sm:w-14 sm:h-14 bg-gradient-to-br from-blue-100 via-sky-100 to-cyan-100 rounded-full flex items-center justify-center mb-1 sm:mb-4 transform group-hover:scale-110 transition-transform duration-300 shadow-md">
-                  <Phone className="w-4 h-4 sm:w-7 sm:h-7 text-blue-600" />
-                </div>
-                <h4 className="font-semibold text-gray-900 mb-0.5 sm:mb-2 text-xs sm:text-lg">Contact</h4>
-                <p className="hidden sm:flex text-gray-600 text-[10px] sm:text-base font-medium truncate">+91 79874-35108</p>
-              </a>
+            <div className="space-y-3 sm:space-y-6 text-xs sm:text-lg text-gray-700 font-medium">
+              <div className="flex items-center justify-center space-x-2">
+                <MapPin className="w-4 h-4 sm:w-6 sm:h-6 text-blue-600" />
+                <span>{contact.address}</span>
+              </div>
+              <div className="flex items-center justify-center space-x-2">
+                <Phone className="w-4 h-4 sm:w-6 sm:h-6 text-blue-600" />
+                <span>{contact.phone}</span>
+              </div>
+              <div>
+                <a href={`mailto:${contact.email}`} className="text-blue-600 hover:underline">
+                  {contact.email}
+                </a>
+              </div>
             </div>
           </div>
         </motion.section>
