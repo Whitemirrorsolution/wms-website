@@ -29,10 +29,10 @@ const defaultBadges = [
 ];
 
 const defaultStats = [
-  { value: 50, suffix: '+', label: 'Projects' },
+  { value: 10, suffix: '+', label: 'Projects' },
   { value: 99, suffix: '%', label: 'Satisfaction' },
   { value: 24, suffix: '/7', label: 'Support' },
-  { value: 5, suffix: '+', label: 'Years' },
+  { value: 1, suffix: '+', label: 'Years' },
 ];
 
 function HeroSection({
