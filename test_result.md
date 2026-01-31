@@ -326,3 +326,5 @@ test_plan:
 agent_communication:
   - agent: "main"
     message: "TaskFlow MVP complete! Implemented full backend with auth, projects, tasks, comments, notifications, and dashboard. Frontend has all major screens: login/signup, dashboard, tasks (list+kanban), task create/detail, projects, notifications, profile. Backend tested via curl, frontend verified via screenshots. Please run comprehensive backend API tests."
+  - agent: "testing"
+    message: "Comprehensive backend API testing completed successfully! All 22 test cases passed with 100% success rate. Tested: Authentication (signup/login/me), Projects CRUD, Tasks CRUD with filters, Comments, Activities, Notifications, Dashboard Stats. JWT authentication working properly, all CRUD operations functional, filters working correctly, activity logging and notifications working as expected. Backend is fully functional and ready for production use."
