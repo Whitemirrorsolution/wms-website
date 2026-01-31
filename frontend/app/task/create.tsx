@@ -18,7 +18,7 @@ import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { api } from '../../src/utils/api';
 import { colors, getPriorityColor } from '../../src/utils/colors';
-import { Project } from '../../src/types';
+import { Project, User } from '../../src/types';
 import DateTimePicker from '@react-native-community/datetimepicker';
 
 const PRIORITIES = ['low', 'medium', 'high', 'critical'];
@@ -32,23 +32,30 @@ export default function CreateTaskScreen() {
   const [status, setStatus] = useState('To Do');
   const [dueDate, setDueDate] = useState<Date | null>(null);
   const [selectedProject, setSelectedProject] = useState<string | null>(null);
+  const [selectedAssignee, setSelectedAssignee] = useState<string | null>(null);
   const [projects, setProjects] = useState<Project[]>([]);
+  const [users, setUsers] = useState<User[]>([]);
   const [tags, setTags] = useState<string[]>([]);
   const [tagInput, setTagInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [showProjectPicker, setShowProjectPicker] = useState(false);
+  const [showAssigneePicker, setShowAssigneePicker] = useState(false);
 
   useEffect(() => {
-    loadProjects();
+    loadData();
   }, []);
 
-  const loadProjects = async () => {
+  const loadData = async () => {
     try {
-      const data = await api.get<Project[]>('/projects');
-      setProjects(data);
+      const [projectsData, usersData] = await Promise.all([
+        api.get<Project[]>('/projects'),
+        api.get<User[]>('/users'),
+      ]);
+      setProjects(projectsData);
+      setUsers(usersData);
     } catch (error) {
-      console.error('Error loading projects:', error);
+      console.error('Error loading data:', error);
     }
   };
 
@@ -78,6 +85,7 @@ export default function CreateTaskScreen() {
         status,
         due_date: dueDate?.toISOString(),
         project_id: selectedProject,
+        assignee_id: selectedAssignee,
         tags,
       });
       router.back();
@@ -89,6 +97,7 @@ export default function CreateTaskScreen() {
   };
 
   const selectedProjectName = projects.find((p) => p.id === selectedProject)?.name;
+  const selectedAssigneeName = users.find((u) => u.id === selectedAssignee)?.name;
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
@@ -136,6 +145,23 @@ export default function CreateTaskScreen() {
             multiline
             numberOfLines={4}
           />
+
+          {/* Assignee - NEW FEATURE */}
+          <Text style={styles.sectionLabel}>Assign To (Subordinate)</Text>
+          <TouchableOpacity
+            style={styles.selectButton}
+            onPress={() => setShowAssigneePicker(true)}
+          >
+            <Ionicons name="person-outline" size={20} color={colors.textSecondary} />
+            <Text style={[styles.selectButtonText, selectedAssignee && styles.selectedText]}>
+              {selectedAssigneeName || 'Select team member'}
+            </Text>
+            {selectedAssignee && (
+              <TouchableOpacity onPress={() => setSelectedAssignee(null)}>
+                <Ionicons name="close-circle" size={20} color={colors.textMuted} />
+              </TouchableOpacity>
+            )}
+          </TouchableOpacity>
 
           {/* Priority */}
           <Text style={styles.sectionLabel}>Priority</Text>
@@ -273,6 +299,72 @@ export default function CreateTaskScreen() {
             </Pressable>
           </Modal>
         )}
+
+        {/* Assignee Picker Modal - NEW */}
+        <Modal
+          visible={showAssigneePicker}
+          transparent
+          animationType="slide"
+          onRequestClose={() => setShowAssigneePicker(false)}
+        >
+          <Pressable style={styles.modalOverlay} onPress={() => setShowAssigneePicker(false)}>
+            <View style={styles.pickerContent}>
+              <Text style={styles.pickerTitle}>Assign Task To</Text>
+              <Text style={styles.pickerSubtitle}>Select a team member to assign this task</Text>
+              <ScrollView style={styles.pickerList}>
+                {users.length === 0 ? (
+                  <View style={styles.noUsersContainer}>
+                    <Ionicons name="people-outline" size={40} color={colors.textMuted} />
+                    <Text style={styles.noUsersText}>No team members yet</Text>
+                    <Text style={styles.noUsersSubtext}>
+                      Go to Profile → Organization to invite team members
+                    </Text>
+                  </View>
+                ) : (
+                  users.map((user) => (
+                    <TouchableOpacity
+                      key={user.id}
+                      style={[
+                        styles.pickerItem,
+                        selectedAssignee === user.id && styles.pickerItemActive,
+                      ]}
+                      onPress={() => {
+                        setSelectedAssignee(user.id);
+                        setShowAssigneePicker(false);
+                      }}
+                    >
+                      <View style={styles.userAvatar}>
+                        <Text style={styles.userAvatarText}>
+                          {user.name.charAt(0).toUpperCase()}
+                        </Text>
+                      </View>
+                      <View style={styles.userInfo}>
+                        <Text
+                          style={[
+                            styles.pickerItemText,
+                            selectedAssignee === user.id && styles.pickerItemTextActive,
+                          ]}
+                        >
+                          {user.name}
+                        </Text>
+                        <Text style={styles.userEmail}>{user.email}</Text>
+                      </View>
+                      {selectedAssignee === user.id && (
+                        <Ionicons name="checkmark-circle" size={24} color={colors.primary} />
+                      )}
+                    </TouchableOpacity>
+                  ))
+                )}
+              </ScrollView>
+              <TouchableOpacity
+                style={styles.pickerDoneButton}
+                onPress={() => setShowAssigneePicker(false)}
+              >
+                <Text style={styles.pickerDoneText}>Done</Text>
+              </TouchableOpacity>
+            </View>
+          </Pressable>
+        </Modal>
 
         {/* Project Picker Modal */}
         <Modal
@@ -446,6 +538,9 @@ const styles = StyleSheet.create({
   selectButtonText: {
     flex: 1,
     fontSize: 16,
+    color: colors.textMuted,
+  },
+  selectedText: {
     color: colors.text,
   },
   tagInputContainer: {
@@ -512,22 +607,44 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
     padding: 20,
-    maxHeight: '60%',
+    maxHeight: '70%',
   },
   pickerTitle: {
     fontSize: 18,
     fontWeight: '600',
     color: colors.text,
     textAlign: 'center',
+    marginBottom: 4,
+  },
+  pickerSubtitle: {
+    fontSize: 14,
+    color: colors.textSecondary,
+    textAlign: 'center',
     marginBottom: 16,
   },
   pickerList: {
-    maxHeight: 300,
+    maxHeight: 350,
   },
   noProjectsText: {
     textAlign: 'center',
     color: colors.textSecondary,
     padding: 20,
+  },
+  noUsersContainer: {
+    alignItems: 'center',
+    padding: 30,
+  },
+  noUsersText: {
+    fontSize: 16,
+    fontWeight: '500',
+    color: colors.text,
+    marginTop: 12,
+  },
+  noUsersSubtext: {
+    fontSize: 14,
+    color: colors.textSecondary,
+    textAlign: 'center',
+    marginTop: 8,
   },
   pickerItem: {
     flexDirection: 'row',
@@ -543,10 +660,32 @@ const styles = StyleSheet.create({
   pickerItemText: {
     fontSize: 16,
     color: colors.text,
+    flex: 1,
   },
   pickerItemTextActive: {
     color: colors.primary,
     fontWeight: '500',
+  },
+  userAvatar: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: colors.primary,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  userAvatarText: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: colors.white,
+  },
+  userInfo: {
+    flex: 1,
+  },
+  userEmail: {
+    fontSize: 13,
+    color: colors.textSecondary,
+    marginTop: 2,
   },
   pickerDoneButton: {
     alignItems: 'center',
