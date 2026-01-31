@@ -545,7 +545,8 @@ class TaskFlowAPITester:
         
         # Authentication Tests
         auth_success = False
-        if self.test_auth_signup():
+        signup_result = self.test_auth_signup()
+        if signup_result:
             auth_success = True
         
         if not auth_success:
