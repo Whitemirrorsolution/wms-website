@@ -82,7 +82,8 @@ class TaskFlowAPITester:
         if response.status_code == 400:
             # User might already exist, try login instead
             print("User already exists, will test login")
-            return True
+            self.log_result("Auth Signup", True, "User already exists (expected)")
+            return False  # Return False so login will be attempted
         elif response.status_code == 200 or response.status_code == 201:
             try:
                 data = response.json()
