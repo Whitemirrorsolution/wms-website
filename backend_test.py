@@ -527,8 +527,10 @@ class TaskFlowAPITester:
             response = self.make_request("DELETE", f"/tasks/{self.test_data['task_id']}")
             if response and response.status_code == 200:
                 print("✅ Test task deleted")
+                self.log_result("Tasks Delete", True, "Task deleted successfully")
             else:
                 print("❌ Failed to delete test task")
+                self.log_result("Tasks Delete", False, f"Delete failed: {response.status_code if response else 'No response'}")
         
         # Delete test project
         if "project_id" in self.test_data:
