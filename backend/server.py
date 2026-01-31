@@ -359,6 +359,31 @@ async def get_organizations(current_user: dict = Depends(get_current_user)):
         for org in orgs
     ]
 
+@api_router.post("/organizations/invite")
+async def invite_member(invite_data: InviteRequest, current_user: dict = Depends(get_current_user)):
+    """Invite a user to the organization by email"""
+    # Check if user exists
+    existing_user = await db.users.find_one({"email": invite_data.email})
+    
+    if existing_user:
+        # Update existing user's organization
+        await db.users.update_one(
+            {"_id": existing_user["_id"]},
+            {"$set": {"organization_id": invite_data.organization_id}}
+        )
+        return {"message": f"User {invite_data.email} added to organization"}
+    else:
+        # Store invitation for when user signs up
+        invite_doc = {
+            "email": invite_data.email,
+            "organization_id": invite_data.organization_id,
+            "invited_by": current_user["id"],
+            "created_at": datetime.utcnow(),
+            "status": "pending"
+        }
+        await db.invitations.insert_one(invite_doc)
+        return {"message": f"Invitation sent to {invite_data.email}"}
+
 # ============== PROJECT ROUTES ==============
 
 @api_router.post("/projects", response_model=ProjectResponse)
