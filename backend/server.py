@@ -186,6 +186,10 @@ class DashboardStats(BaseModel):
     tasks_by_status: Dict[str, int]
     tasks_by_priority: Dict[str, int]
 
+class InviteRequest(BaseModel):
+    email: EmailStr
+    organization_id: Optional[str] = None
+
 # ============== HELPER FUNCTIONS ==============
 
 def hash_password(password: str) -> str:
