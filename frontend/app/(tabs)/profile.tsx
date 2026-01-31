@@ -44,7 +44,7 @@ export default function ProfileScreen() {
     {
       icon: 'business-outline',
       label: 'Organization',
-      onPress: () => Alert.alert('Coming Soon', 'Organization management will be available soon'),
+      onPress: () => router.push('/organization'),
     },
     {
       icon: 'notifications-outline',
