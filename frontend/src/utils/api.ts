@@ -1,6 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || 'http://localhost:8001';
+// Get the backend URL - remove trailing slash if present
+const BASE_URL = (process.env.EXPO_PUBLIC_BACKEND_URL || 'http://localhost:8001').replace(/\/$/, '');
 
 class ApiClient {
   private token: string | null = null;
@@ -33,13 +34,18 @@ class ApiClient {
       headers['Authorization'] = `Bearer ${token}`;
     }
 
-    const response = await fetch(`${API_URL}/api${endpoint}`, {
+    // Build the full URL: BASE_URL + /api + endpoint
+    const fullUrl = `${BASE_URL}/api${endpoint}`;
+    console.log('API Request:', fullUrl);
+
+    const response = await fetch(fullUrl, {
       ...options,
       headers,
     });
 
     if (!response.ok) {
       const error = await response.json().catch(() => ({ detail: 'Request failed' }));
+      console.log('API Error:', error);
       throw new Error(error.detail || 'Request failed');
     }
 
